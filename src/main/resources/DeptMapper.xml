@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mapper namespace="com.spingboot.spingbootfirst.dao.DeptMapper">
+
+    <resultMap id="BaseResultMap" type="com.spingboot.spingbootfirst.domain.Dept">
+
+        <id column="deptnu" jdbcType="Integer" property="id"/>
+        <result column="dname" jdbcType="VARCHAR" property="username"/>
+        <result column="addr" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+
+    <select id="getDeptInfo" resultType="Dept" parameterType="java.lang.String">
+        select * from dept where deptnu=#{deptnu}
+    </select>
+
+</mapper>
+
+
+
+
+

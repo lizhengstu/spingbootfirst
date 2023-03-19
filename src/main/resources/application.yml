@@ -1,0 +1,25 @@
+logging:
+  config:
+    classpath: logback.xml
+    #level:
+     # com.spingboot.spingbootfirst.controller: trace
+
+
+datasource:
+  url: 192.168.11.20:3306/db1
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${datasource.url}?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    username: root
+    password: lz123456
+    hikari:
+      maximum-pool-size: 10 # 最大连接池数
+      max-lifetime: 1800000
+mybatis:
+  # 指定别名设置的包为所有entity
+  type-aliases-package: com.spingboot.spingbootfirst.domain
+  configuration:
+    map-underscore-to-camel-case: true #支持驼峰命名规范
+  mapper-locations: classpath*:mapper/*.xml # mapper映射文件位置

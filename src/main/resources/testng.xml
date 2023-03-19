@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test">
+    <test name="testdemo" >
+
+        <classes>
+
+            <class name="com.spingboot.spingbootfirst.cases.XDTest">
+                    <methods>
+                        <include name="productLlist"/>
+                        <include name="login"/>
+                        <include name="userInfo"/>
+                    </methods>
+            </class>
+        </classes>
+    </test>
+
+    <listeners>
+        <!--这里是监听类的目录不要直接复制-->
+        <listener class-name="com.spingboot.spingbootfirst.Utils.ExtentTestNGIReporterListener"/>
+    </listeners>
+</suite>
