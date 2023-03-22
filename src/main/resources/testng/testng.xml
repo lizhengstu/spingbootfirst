@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="test">
+<suite name="test"  parallel="methods" thread-count="5">
+
+
+    <parameter name="name" value="794666918@qq.com"/>
+    <parameter name="password" value="123456"/>
+
+
+
+
     <test name="testdemo" >
-
         <classes>
-
-            <class name="com.spingboot.spingbootfirst.cases.XDTest">
+            <class name="com.spingboot.spingbootfirst.cases.XDTest" >
                     <methods>
-                        <include name="productLlist"/>
                         <include name="login"/>
-                        <include name="userInfo"/>
+                        <include name="productLlist"/>
                     </methods>
             </class>
         </classes>
