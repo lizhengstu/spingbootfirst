@@ -14,15 +14,7 @@ import org.testng.annotations.Test;
 public class XDTest {
 
     private static final Logger logger= LoggerFactory.getLogger(XDTest.class);
-
-
-
     private  String data;
-
-
-
-
-
     @Test()
     public void productLlist(){
         HttpGet httpGet=new HttpGet("http://192.168.11.20:8080/api/v1/product/list");
