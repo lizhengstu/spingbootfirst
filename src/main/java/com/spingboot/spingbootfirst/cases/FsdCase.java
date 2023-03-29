@@ -2,6 +2,7 @@ package com.spingboot.spingbootfirst.cases;
 
 import com.alibaba.fastjson.JSONObject;
 import com.spingboot.spingbootfirst.Utils.FMsend;
+import com.spingboot.spingbootfirst.merchantconfig.FydMerchantConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
@@ -11,20 +12,17 @@ import java.util.UUID;
 public class FsdCase {
     private static final Logger logger= LoggerFactory.getLogger(XDTest.class);
     private String clientSerialNo=UUID.randomUUID().toString().replaceAll("-", "");
-    private String channelNo="825512";
-    private String FSDMerchantNo="8888001000801031";
-    private String businessCode="FSD-FYD";
-
+    private FydMerchantConfig fsdMerchantConfig =new FydMerchantConfig();
 
 
     //4.6.2	关联企业添加
     @Test
     public void  addEnterprise(){
         JSONObject jsonObject =new JSONObject();
-        jsonObject.put("channelNo",channelNo);
+        jsonObject.put("channelNo",fsdMerchantConfig.channelNo());
         jsonObject.put("version","1.0.0");
-        jsonObject.put("FSDMerchantNo",FSDMerchantNo);
-        jsonObject.put("businessCode",businessCode);
+        jsonObject.put("FSDMerchantNo",fsdMerchantConfig.businessMerchantNo());
+        jsonObject.put("businessCode",fsdMerchantConfig.businessCode());
         jsonObject.put("custId","3000002003338647");
         jsonObject.put("custName","李政");
         jsonObject.put("idCardType","1");
@@ -46,10 +44,10 @@ public class FsdCase {
 
         JSONObject jsonObject =new JSONObject();
         jsonObject.put("clientSerialNo",clientSerialNo);
-        jsonObject.put("channelNo",channelNo);
+        jsonObject.put("channelNo",fsdMerchantConfig.channelNo());
         jsonObject.put("version","1.0.0");
-        jsonObject.put("FSDMerchantNo",FSDMerchantNo);
-        jsonObject.put("businessCode",businessCode);
+        jsonObject.put("FSDMerchantNo",fsdMerchantConfig.businessMerchantNo());
+        jsonObject.put("businessCode",fsdMerchantConfig.businessCode());
         jsonObject.put("custId","3000002003338647");
         jsonObject.put("custName","李政");
         jsonObject.put("idCardType","1");
@@ -60,7 +58,7 @@ public class FsdCase {
         jsonObject.put("custMobile","13658596614");
         jsonObject.put("channel","H5");
         jsonObject.put("driverName","br0001");
-        jsonObject.put("salesChannelNumber",channelNo);
+        jsonObject.put("salesChannelNumber",fsdMerchantConfig.channelNo());
         jsonObject.put("sourceIp","127.0.0.1");
         jsonObject.put("platform","WEB");
 
@@ -78,12 +76,11 @@ public class FsdCase {
     //4.6.6	客户授信申请信息提交
     @Test
     public void creditApply(){
-
         JSONObject jsonObject =new JSONObject();
         jsonObject.put("clientSerialNo",clientSerialNo);
         jsonObject.put("version","1.0.0");
-        jsonObject.put("FSDMerchantNo",FSDMerchantNo);
-        jsonObject.put("businessCode",businessCode);
+        jsonObject.put("FSDMerchantNo",fsdMerchantConfig.merchantNo());
+        jsonObject.put("businessCode",fsdMerchantConfig.businessCode());
         jsonObject.put("custId","3000002003338647");
         jsonObject.put("custName","李政");
         jsonObject.put("idCardType","1");
